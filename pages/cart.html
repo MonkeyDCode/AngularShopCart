@@ -1,0 +1,38 @@
+<div align="center">
+    <h1>Carrito</h1>
+            <div class="row" ng-repeat="item in cartControllerVM.cart">
+                <div class="col-sm-1 col-md=1"> <img  style="max-width: 50px;" src="{{item.img}}"/></div>
+                <div class="col-sm-2 col-md=2"><p>Producto:<br> {{item.item}}</p></div>
+                <div class="col-sm-3 col-md=3">
+                    <p>Cantidad:<br> 
+                        <a class="btn btn-primary btn-sm" href="javascript:void(0);" 
+                            ng-click="cartControllerVM.minus($index)"> 
+                            -
+                        </a>
+                        {{item.quantity}}
+                        <a class="btn btn-primary btn-sm" href="javascript:void(0);" 
+                            ng-click="cartControllerVM.add($index)"> 
+                            +
+                        </a>
+                    </p>
+                </div>
+                <div class="col-sm-2 col-md=2"><p>Precio:<br> {{item.price}}</p></div>
+                <div class="col-sm-3 col-md=3"><p>Total del producto:<br> {{item.price * item.quantity}}</p></div>
+                <div class="col-sm-1 col-md=1"> 
+                    <a class="btn btn-primary btn-sm" href="javascript:void(0);" 
+                        ng-click="cartControllerVM.cart.splice($index,1);cartControllerVM.calculateTotal();"> 
+                        x
+                    </a>
+                </div>
+                <hr>
+            </div>
+            <div ng-init="cartControllerVM.calculateTotal();" class="col" align="right">
+                <h4>Total: {{cartControllerVM.total}}
+                </h4>
+            </div>
+            <div class="col" ng-show="cartControllerVM.total>0">
+                <a href="javascript:void(0)" ui-sref="form" class="btn btn-outline-primary">Continuar</a>
+            </div>
+            
+            
+</div>

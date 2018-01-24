@@ -1,0 +1,29 @@
+<div>
+    <h3 align="center"> Productos disponibles</h3>
+    <div class="row" align="justify">
+        <div class=" col-xs-12 col-sm-6 col-lg-4" ng-repeat="item in productsControllerVM.items" >
+            <img class="card-img-top" style="padding: 20px" src="{{item.img}}" alt="image">
+            <div class="">
+                <h5 >{{item.item}} <b>(${{item.price}})</b></h5>
+                <p class="card-text">{{item.desc}}</p>
+                <p class="card-text">
+                    <b>Cantidad: </b>
+                    <a class="btn btn-primary btn-sm" href="javascript:void(0);" 
+                        ng-click="productsControllerVM.minus(item.id,item.price)"> 
+                            -
+                    </a>
+                    <input ng-disabled="true" value="1" id ="item{{item.id}}" type="number" max="20" min="1" >
+                    <a class="btn btn-primary btn-sm" href="javascript:void(0);" 
+                        ng-click="productsControllerVM.add(item.id,item.price)" >
+                            +
+                    </a>
+                </p>
+                <p class="card-text"><b>Total: </b>
+                    <input ng-disabled="true"  id ="total{{item.id}}" type="text" ng-value="{{item.price}}" >
+                </p>    
+                <a href="javascript:void(0);" ng-click="productsControllerVM.addToCart($index,item.id)" class="btn btn-block btn-outline-success">Añadir al carrito</a>
+            </div>
+        </div>
+        
+    </div>    
+</div>

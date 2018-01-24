@@ -1,0 +1,50 @@
+[    
+    {
+        "id":1,
+        "img":"img/item.png",
+        "item":"Producto 1",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price":15,
+        "quantity":0
+    },
+    {
+        "id":2,
+        "img":"img/item.png",
+        "item":"Producto 2",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price":12,
+        "quantity":0
+    },
+    {
+        "id":3,
+        "img":"img/item.png",
+        "item":"Producto 3",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price":8,
+        "quantity":0
+    },
+    {
+        "id":4,
+        "img":"img/item.png",
+        "item":"Producto 4",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price":9.5,
+        "quantity":0
+    },
+    {
+        "id":5,
+        "img":"img/item.png",
+        "item":"Producto 5",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price":40,
+        "quantity":0
+    },
+    {
+        "id":6,
+        "img":"img/item.png",
+        "item":"Producto 6",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price":9.5,
+        "quantity":0
+    }
+]

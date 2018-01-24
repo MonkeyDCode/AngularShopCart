@@ -1,0 +1,127 @@
+<style>.is-invalid{color:red}</style>
+<form name="generalDataForm" id="generalDataForm" novalidate>
+    <div class="row">
+        <div class="form-group-padding col-xs-12 col-sm-6 col-md-6"
+            data-ng-class="{'is-invalid': generalDataForm.name.$invalid && formControllerVM.isSubmited }">
+            <label class="control-label" for="name">Nombre Completo*</label>
+            <input class="form-control" id="name" name="name" type="text"
+            data-ng-model="formControllerVM.data.name"
+            data-ng-pattern="/^[a-zA-ZáéíóúAÉÍÓÚÑñ ]+$/"
+            required >
+            <span class="control-label is-invalid"
+                data-ng-show="generalDataForm.name.$error.required && formControllerVM.isSubmited">
+                campo requerido!!
+            </span>
+            <span class="control-label is-invalid"
+                data-ng-show="!generalDataForm.name.$error.required && generalDataForm.name.$invalid && formControllerVM.isSubmited">
+                campo con formato invalido!!
+            </span>
+        </div>
+        
+        <div class="form-group-padding col-xs-12 col-sm-6 col-md-6"
+            data-ng-class="{'is-invalid': generalDataForm.address.$invalid && formControllerVM.isSubmited }">
+            <label class="control-label" for="address">Dirección*</label>
+            <textarea class="form-control" id="address" name="address" 
+                data-ng-model="formControllerVM.data.address"
+                required
+                data-ng-disabled="true"
+                rows="2"></textarea>
+            <span class="control-label">
+                **Selecciona tu direccion en el mapa<br>
+            </span>
+            <span class="control-label is-invalid"
+                data-ng-show="generalDataForm.address.$error.required && formControllerVM.isSubmited">
+                campo requerido!!
+            </span>
+            <span class="control-label is-invalid"
+                data-ng-show="!generalDataForm.address.$error.required && generalDataForm.address.$invalid && formControllerVM.isSubmited">
+                campo con formato invalido!!
+            </span>
+        </div>
+    </div>
+    <div class="row"style="padding: 20px;">
+        <div style ="height: 250px;width: 100%;" id="map" class="col-sm-12 col-lg-12"></div>
+        
+    </div>
+    <div class="row">
+        <div class="form-group-padding col-xs-12 col-sm-6 col-md-6"
+            data-ng-class="{'is-invalid': generalDataForm.card.$invalid && formControllerVM.isSubmited }">
+            <label class="control-label" for="card">Número de Tarjeta*</label>
+            <input class="form-control" id="card" name="card" type="text"
+                data-ng-model="formControllerVM.data.card"
+                data-ng-pattern="/^5[1-5][0-9]{14}|4[0-9]{15}|3[47][0-9]{13}$|[0-9]{5,16}/"
+                size="16"
+                maxlength="16"
+                data-ng-change="formControllerVM.evaluate();"
+                required >
+            <span class="control-label is-invalid"
+                data-ng-show="generalDataForm.card.$error.required && formControllerVM.isSubmited">
+                campo requerido!!
+            </span>
+            <span class="control-label is-invalid"
+                data-ng-show="!generalDataForm.card.$error.required && generalDataForm.card.$invalid && formControllerVM.isSubmited">
+                campo con formato invalido!!
+            </span>
+            <span class="control-label is-invalid"
+                data-ng-show="formControllerVM.visa">
+                Visa
+            </span>
+            <span class="control-label is-invalid"
+                data-ng-show="formControllerVM.master">
+                Masterdard
+            </span>
+            <span class="control-label is-invalid"
+                data-ng-show="formControllerVM.american">
+                Por el momento no aceptamos American Xpress
+            </span>
+            <span class="control-label is-invalid"
+                data-ng-show="formControllerVM.nondefined">
+                Tarjeta no reconocida
+            </span>
+        </div>
+        <div class="form-group-padding col-xs-12 col-sm-6 col-md-6"
+            data-ng-class="{'is-invalid': formControllerVM.data.present==undefined && formControllerVM.isSubmited}">
+                <label class="control-label" for="present">¿Regalo? *</label><br>
+                <div class="row" style="padding-left: 30px">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" id="NO" value="NO" name="NO" 
+                            data-ng-model="formControllerVM.data.present"
+                            required
+                            data-ng-click/>
+                        <label class="form-check-label" for="NO">No</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" id="SI" value="SI" name="SI" 
+                            data-ng-model="formControllerVM.data.present"/>
+                        <label class="form-check-label" for="SI">Si</label>
+                    </div>
+                </div>
+                <span class="control-label is-invalid"
+                    data-ng-show="formControllerVM.data.present==undefined && formControllerVM.isSubmited">
+                    Campo requerido!!<br>
+                </span>
+        </div>
+    </div>
+    <div align ="center">
+        <hr>
+        <div style="padding: 30px;" class="row" data-ng-class="{'is-invalid': formControllerVM.data.confirm!=true && formControllerVM.isSubmited}">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="confirm" name="confirm"
+                       required
+                       data-ng-model ="formControllerVM.data.confirm"/>
+                <label class="form-check-label" for="confirm" >Confirmo que todos los datos son correctos<br> </label>
+            </div>
+            <span class="control-label is-invalid"
+                data-ng-show="formControllerVM.data.confirm!=true && formControllerVM.isSubmited">
+                <br>Campo requerido!!<br>
+            </span>
+        </div>
+        <div class="row">
+            <button align="center" class="btn btn-success btn-lg" href="javascript:void(0)" ng-click="formControllerVM.submit(generalDataForm.$valid);"
+               data-ng-disabled="formControllerVM.data.confirm!=true || !generalDataForm.$valid || (!formControllerVM.visa && !formControllerVM.master)">Pagar</button>
+            {{!formControllerVM.visa && !formControllerVM.master}}
+        </div>
+    </div>
+</form>
+
+

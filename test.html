@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+    <script>
+        const arrayToSum = [1,2,'3',[45,'76',32,[4,78,0,'-45']],3,[[true, false, 23, 45, [[[25,67,1,-687,34,[[[[45,52,100,[[[33,25]]]],0.5]],3.45]]],78,2]]],[[0.05,'23.3',[45,32,'B','2', '45']], {}]];    
+        var result=0;
+        
+        function toSum (array){
+            for(let a of array){
+                console.log(a);
+                if(Array.isArray(a)){
+                    toSum(a);
+                }
+                else{
+                    let temp = parseFloat(a);
+//                  if(temp !='true' || temp!='false' ){
+                    if(!isNaN(temp)){
+                        result += parseFloat(a);
+                    }
+//                }
+                }   
+                   
+            }
+        
+        
+        }
+        toSum(arrayToSum);
+        console.log(result);
+    </script>
+        
+    </body>
+</html>

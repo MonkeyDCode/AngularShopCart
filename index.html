@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Carrito de compras con AngularJS</title>
+    <link rel="stylesheet"  href="css/bootstrap4.css"  media="screen" />
+    
+    
+    
+    
+</head>
+    <body>
+        <!-- Libraries-->
+        <script type="text/javascript" src="libs/jquery.js"></script>
+        <script type='text/javascript' src="libs/popper.min.js"></script>
+        <script type="text/javascript" src="libs/bootstrap4.js"></script>
+        <script type='text/javascript' src="libs/bootbox.min.js"></script>
+        <script type="text/javascript" src="libs/angular.min.js"></script>
+        <script type='text/javascript' src="libs/angular-route.min.js"></script>
+        <script type='text/javascript' src="libs/angular.ui.js"></script>
+        <!-- Factories-->
+        <script type='text/javascript' src="app/factories/CartFactory.js"></script>
+        <!-- Controllers-->
+        <script type='text/javascript' src="app/controllers/homeController.js"></script>
+        <script type='text/javascript' src="app/controllers/productsController.js"></script>
+        <script type='text/javascript' src="app/controllers/cartController.js"></script>
+        <script type='text/javascript' src="app/controllers/formController.js"></script>
+        <!-- Config App-->
+        <script type="text/javascript" src="app/app.module.js"></script>
+        <script type='text/javascript' src="app/app.routes.js"></script>
+        
+                <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCcVOmNFy_gDxxw2uDOEasH1MdbGZbKV4g"
+    async defer></script>
+        
+        
+        
+        <div class="container">
+            <div data-ng-include="src='pages/menu.html'"></div>
+
+            <div ui-view></div>
+
+            <div data-ng-include="src='pages/footer.html'"></div>
+        </div>
+    </body>
+</html>
